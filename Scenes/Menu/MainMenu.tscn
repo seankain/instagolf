@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq0a063uqyuam"]
+
+[ext_resource type="Script" uid="uid://cbp2bq1l00fnr" path="res://Scripts/MainMenu.cs" id="1_35riq"]
+[ext_resource type="PackedScene" uid="uid://bngtja8n0ww5t" path="res://Scenes/Menu/GameOptionsMenu.tscn" id="1_mj0i0"]
+[ext_resource type="PackedScene" uid="uid://co0bttxc1rj0k" path="res://Scenes/Menu/ActiveGamesList.tscn" id="1_tt5f1"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_35riq")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+
+[node name="Host" parent="TabContainer" instance=ExtResource("1_mj0i0")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Join" parent="TabContainer" instance=ExtResource("1_tt5f1")]
+layout_mode = 2
+metadata/_tab_index = 1

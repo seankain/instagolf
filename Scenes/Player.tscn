@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwmuot2vcojgs"]
+
+[ext_resource type="Script" uid="uid://g7dqnqmua4mr" path="res://Scripts/Player.cs" id="1_xyfoy"]
+[ext_resource type="PackedScene" uid="uid://brepk4tnjuvoj" path="res://Meshes/golfclub.glb" id="2_s5364"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_atwsh"]
+
+[node name="PlayerRedo" type="Node3D"]
+script = ExtResource("1_xyfoy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_atwsh")
+
+[node name="golfclub" parent="." instance=ExtResource("2_s5364")]
+transform = Transform3D(0.216307, 0.207873, 0, -0.207873, 0.216307, 0, 0, 0, 0.3, -1.45, 0, 0)

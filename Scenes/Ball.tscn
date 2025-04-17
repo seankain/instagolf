@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://y1f5osx6krmn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rmwm4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rmwm4"]
+
+[node name="Ball" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_rmwm4")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 0.2
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_rmwm4")
