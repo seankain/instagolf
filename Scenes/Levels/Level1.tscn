@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bw41qn54eejvt" path="res://Meshes/pine_tree.glb" id="3_kri6y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4d3fe"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+sky_top_color = Color(0.0666667, 0.768627, 1, 1)
+sky_horizon_color = Color(0.266667, 0.423529, 1, 1)
+ground_bottom_color = Color(0.2, 1, 0.556863, 1)
+ground_horizon_color = Color(0.633716, 0.879712, 1, 1)
 
 [sub_resource type="Sky" id="Sky_3ipdw"]
 sky_material = SubResource("ProceduralSkyMaterial_4d3fe")

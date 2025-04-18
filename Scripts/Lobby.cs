@@ -47,13 +47,13 @@ public partial class Lobby : Node
     public void OnJoinButtonPressed()
     {
         JoinGame("127.0.0.1");
-        LoadGame("res://Scenes/TestLevel.tscn");
+        LoadGame("res://Scenes/Levels/Level1.tscn");
     }
 
     public void OnHostButtonPressed()
     {
         CreateGame();
-        LoadGame("res://Scenes/TestLevel.tscn");
+        LoadGame("res://Scenes/Levels/Level1.tscn");
     }
 
     private Error JoinGame(string address = "")

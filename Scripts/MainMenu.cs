@@ -1,19 +1,19 @@
 using Godot;
 using System;
 
-public partial class MainMenu : CanvasLayer
+public partial class MainMenu : Control
 {
     [Export]
     public PackedScene PlayerScene;
-    [Export]
-    public Button HostButton;
-    [Export]
-    public Button JoinButton;
-    [Export]
-    public Button OptionsButton;
-    [Export]
-    public Button QuitButton;
-    [Export]
+    // [Export]
+    // public Button HostButton;
+    // [Export]
+    // public Button JoinButton;
+    // [Export]
+    // public Button OptionsButton;
+    // [Export]
+    // public Button QuitButton;
+    // [Export]
     public Control JoinMenu;
 
     private ENetMultiplayerPeer enetPeer;
@@ -21,10 +21,10 @@ public partial class MainMenu : CanvasLayer
     public override void _Ready()
     {
         base._Ready();
-        HostButton.Pressed += OnHostButtonPressed;
-        QuitButton.Pressed += OnQuitButtonPressed;
-        JoinButton.Pressed += OnJoinButtonPressed;
-        HostButton.GrabFocus();
+        //HostButton.Pressed += OnHostButtonPressed;
+        // QuitButton.Pressed += OnQuitButtonPressed;
+        // JoinButton.Pressed += OnJoinButtonPressed;
+        // HostButton.GrabFocus();
         enetPeer = new ENetMultiplayerPeer();
 
     }
