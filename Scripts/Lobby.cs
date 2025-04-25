@@ -103,7 +103,16 @@ public partial class Lobby : Node
     [Rpc(CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
     private void LoadGame(string gameScenePath)
     {
-        GetTree().ChangeSceneToFile(gameScenePath);
+        //GetTree().ChangeSceneToFile(gameScenePath);
+        var x = GetNode("/root/Main");
+        if (x is LevelManager)
+        {
+            GD.Print(x);
+            ((LevelManager)x).ChangeLevel(0);
+            //GetNode<LevelManager>(".").ChangeLevel(0);
+        }
+
+
     }
 
     // Every peer will call this when they have loaded the game scene.

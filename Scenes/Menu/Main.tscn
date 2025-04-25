@@ -1,9 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bssxriq6wh25v"]
+[gd_scene load_steps=6 format=3 uid="uid://bssxriq6wh25v"]
 
+[ext_resource type="Script" uid="uid://dbut6qnwko0ef" path="res://Scripts/LevelManager.cs" id="1_aksbj"]
 [ext_resource type="PackedScene" uid="uid://dq0a063uqyuam" path="res://Scenes/Menu/MainMenu.tscn" id="1_r150o"]
+[ext_resource type="PackedScene" uid="uid://dwmuot2vcojgs" path="res://Scenes/Player.tscn" id="2_1mlt5"]
+[ext_resource type="PackedScene" uid="uid://ohkevvbv68xl" path="res://Scenes/Levels/Level1.tscn" id="2_8xtjf"]
+[ext_resource type="PackedScene" uid="uid://ddx0qv5ncdgub" path="res://Scenes/Levels/Level2.tscn" id="3_1mlt5"]
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("LevelRoot")]
+script = ExtResource("1_aksbj")
+PlayerScene = ExtResource("2_1mlt5")
+LevelScenes = Array[PackedScene]([ExtResource("2_8xtjf"), ExtResource("3_1mlt5")])
+LevelRoot = NodePath("LevelRoot")
 
 [node name="LevelRoot" type="Node3D" parent="."]
 
 [node name="MainMenu" parent="." instance=ExtResource("1_r150o")]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://dwmuot2vcojgs", "uid://y1f5osx6krmn")
+spawn_path = NodePath("..")

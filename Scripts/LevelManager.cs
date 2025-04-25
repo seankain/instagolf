@@ -1,10 +1,16 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class LevelManager : Node3D
 {
     [Export]
     public PackedScene PlayerScene;
+    [Export]
+    public PackedScene[] LevelScenes;
+
+    [Export]
+    public Node3D LevelRoot;
     public override void _Ready()
     {
         foreach (var i in Lobby.Instance._players)
@@ -30,8 +36,10 @@ public partial class LevelManager : Node3D
 
     }
 
-    private void ChangeLevel()
+    public void ChangeLevel(int levelIndex)
     {
-
+        var levelScene = GD.Load<PackedScene>(LevelScenes[levelIndex].ResourcePath);
+        var levelInstance = levelScene.Instantiate();
+        GetNode("LevelRoot").AddChild(levelInstance);
     }
 }
