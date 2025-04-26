@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://ohkevvbv68xl" path="res://Scenes/Levels/Level1.tscn" id="2_8xtjf"]
 [ext_resource type="PackedScene" uid="uid://ddx0qv5ncdgub" path="res://Scenes/Levels/Level2.tscn" id="3_1mlt5"]
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("LevelRoot")]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("Menu", "LevelRoot")]
 script = ExtResource("1_aksbj")
 PlayerScene = ExtResource("2_1mlt5")
 LevelScenes = Array[PackedScene]([ExtResource("2_8xtjf"), ExtResource("3_1mlt5")])
+Menu = NodePath("MainMenu")
 LevelRoot = NodePath("LevelRoot")
 
 [node name="LevelRoot" type="Node3D" parent="."]

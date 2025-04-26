@@ -83,4 +83,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.624901, 7.66664, -37.9725)
 [node name="pine_tree4" parent="." instance=ExtResource("3_kri6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.0006, 4.62572, -38.9336)
 
+[node name="Spawn1" type="Node3D" parent="." groups=["SpawnPositions"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7439, 2.91663, -47.0603)
+
 [editable path="golf_terrain1"]

@@ -1,16 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwmuot2vcojgs"]
+[gd_scene load_steps=5 format=3 uid="uid://dwmuot2vcojgs"]
 
 [ext_resource type="Script" uid="uid://g7dqnqmua4mr" path="res://Scripts/Player.cs" id="1_xyfoy"]
 [ext_resource type="PackedScene" uid="uid://brepk4tnjuvoj" path="res://Meshes/golfclub.glb" id="2_s5364"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_atwsh"]
 
-[node name="PlayerRedo" type="Node3D"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_kyqiw"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="PlayerRedo" type="Node3D" node_paths=PackedStringArray("CameraRig", "CameraXPivot", "camera")]
 script = ExtResource("1_xyfoy")
+CameraRig = NodePath("Marker3D")
+CameraXPivot = NodePath("Marker3D/Marker3D")
+camera = NodePath("Marker3D/Marker3D/Camera3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.00213516, 1, -0.00622552)
 mesh = SubResource("CapsuleMesh_atwsh")
 
 [node name="golfclub" parent="." instance=ExtResource("2_s5364")]
-transform = Transform3D(0.216307, 0.207873, 0, -0.207873, 0.216307, 0, 0, 0, 0.3, -1.45, 0, 0)
+transform = Transform3D(-0.216307, -0.207873, -2.62268e-08, -0.207873, 0.216307, -7.73926e-11, 1.89638e-08, 1.8117e-08, -0.3, 1.44781, 0, 0.00622552)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87484, 2.79481)
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D/Marker3D"]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_kyqiw")
