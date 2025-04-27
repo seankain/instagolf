@@ -110,8 +110,8 @@ public partial class Lobby : Node
             GD.Print(x);
             ((LevelManager)x).ChangeLevel(0);
             //GetNode<LevelManager>(".").ChangeLevel(0);
-        }
 
+        }
 
     }
 

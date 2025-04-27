@@ -66,7 +66,7 @@ public partial class Player : Node3D
             if (eventKey.Pressed && eventKey.Keycode == Key.Escape)
             {
                 //TODO bring up menu
-                GetTree().Quit();
+                //GetTree().Quit();
             }
         }
     }

@@ -1,41 +1,16 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 
-public partial class LevelManager : Node3D
+public partial class Level : Node3D
 {
     [Export]
     public PackedScene PlayerScene;
-    [Export]
-    public PackedScene[] LevelScenes;
-
-    [Export]
-    public Control Menu;
-
-    [Export]
-    public Node3D LevelRoot;
     public override void _Ready()
     {
         foreach (var i in Lobby.Instance._players)
         {
             AddPlayer(i.Key);
         }
-    }
-
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        if (@event is InputEventKey eventKey)
-        {
-            if (eventKey.Pressed && eventKey.Keycode == Key.Escape)
-            {
-                ToggleMenu();
-            }
-        }
-    }
-
-    private void ToggleMenu()
-    {
-        Menu.Visible = !Menu.Visible;
     }
 
     private void AddPlayer(long peerId)
@@ -57,11 +32,4 @@ public partial class LevelManager : Node3D
 
     }
 
-    public void ChangeLevel(int levelIndex)
-    {
-        var levelScene = GD.Load<PackedScene>(LevelScenes[levelIndex].ResourcePath);
-        var levelInstance = levelScene.Instantiate();
-        GetNode("LevelRoot").AddChild(levelInstance);
-
-    }
 }
