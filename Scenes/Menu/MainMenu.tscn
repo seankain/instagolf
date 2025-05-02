@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq0a063uqyuam"]
+[gd_scene load_steps=6 format=3 uid="uid://dq0a063uqyuam"]
 
 [ext_resource type="Script" uid="uid://cbp2bq1l00fnr" path="res://Scripts/MainMenu.cs" id="1_35riq"]
 [ext_resource type="PackedScene" uid="uid://bngtja8n0ww5t" path="res://Scenes/Menu/GameOptionsMenu.tscn" id="1_mj0i0"]
 [ext_resource type="PackedScene" uid="uid://co0bttxc1rj0k" path="res://Scenes/Menu/ActiveGamesList.tscn" id="1_tt5f1"]
 [ext_resource type="PackedScene" uid="uid://dwmuot2vcojgs" path="res://Scenes/Player.tscn" id="2_p4pvn"]
+[ext_resource type="Texture2D" uid="uid://bc6u5fu8m683h" path="res://Icons/x_icon.png" id="5_s3ie0"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("QuitButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_35riq")
 PlayerScene = ExtResource("2_p4pvn")
+QuitButton = NodePath("QuitButton")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -32,3 +34,28 @@ metadata/_tab_index = 0
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -92.0
+offset_top = 34.0
+offset_right = -4.0
+offset_bottom = 88.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="QuitButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 6.0
+offset_right = 1002.0
+offset_bottom = 986.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_s3ie0")

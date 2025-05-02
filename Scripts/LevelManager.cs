@@ -36,6 +36,14 @@ public partial class LevelManager : Node3D
     private void ToggleMenu()
     {
         Menu.Visible = !Menu.Visible;
+        if (Menu.Visible)
+        {
+            Input.MouseMode = Input.MouseModeEnum.Visible;
+        }
+        else
+        {
+            Input.MouseMode = Input.MouseModeEnum.Captured;
+        }
     }
 
     private void AddPlayer(long peerId)

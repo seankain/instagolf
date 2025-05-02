@@ -13,11 +13,12 @@ properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
-[node name="PlayerRedo" type="Node3D" node_paths=PackedStringArray("CameraRig", "CameraXPivot", "camera")]
+[node name="Player" type="Node3D" node_paths=PackedStringArray("CameraRig", "CameraXPivot", "camera")]
 script = ExtResource("1_xyfoy")
-CameraRig = NodePath("Marker3D")
-CameraXPivot = NodePath("Marker3D/Marker3D")
-camera = NodePath("Marker3D/Marker3D/Camera3D")
+CameraRig = NodePath("CameraRig")
+CameraXPivot = NodePath("CameraRig/Marker3D")
+camera = NodePath("CameraRig/Marker3D/Camera3D")
+MouseSensitivity = 1.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.00213516, 1, -0.00622552)
@@ -26,12 +27,12 @@ mesh = SubResource("CapsuleMesh_atwsh")
 [node name="golfclub" parent="." instance=ExtResource("2_s5364")]
 transform = Transform3D(-0.216307, -0.207873, -2.62268e-08, -0.207873, 0.216307, -7.73926e-11, 1.89638e-08, 1.8117e-08, -0.3, 1.44781, 0, 0.00622552)
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="CameraRig" type="Marker3D" parent="."]
 
-[node name="Marker3D" type="Marker3D" parent="Marker3D"]
+[node name="Marker3D" type="Marker3D" parent="CameraRig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87484, 2.79481)
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D/Marker3D"]
+[node name="Camera3D" type="Camera3D" parent="CameraRig/Marker3D"]
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_kyqiw")

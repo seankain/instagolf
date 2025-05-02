@@ -11,8 +11,8 @@ public partial class MainMenu : Control
     // public Button JoinButton;
     // [Export]
     // public Button OptionsButton;
-    // [Export]
-    // public Button QuitButton;
+    [Export]
+    public TextureButton QuitButton;
     // [Export]
     public Control JoinMenu;
 
@@ -22,7 +22,7 @@ public partial class MainMenu : Control
     {
         base._Ready();
         //HostButton.Pressed += OnHostButtonPressed;
-        // QuitButton.Pressed += OnQuitButtonPressed;
+        QuitButton.Pressed += OnQuitButtonPressed;
         // JoinButton.Pressed += OnJoinButtonPressed;
         // HostButton.GrabFocus();
         enetPeer = new ENetMultiplayerPeer();
@@ -45,15 +45,6 @@ public partial class MainMenu : Control
         // Multiplayer.MultiplayerPeer.PeerConnected += AddPlayer;
         // AddPlayer(Multiplayer.GetUniqueId());
         // GetTree().ChangeSceneToFile("res://Scenes/TestLevel.tscn");
-    }
-    //TODO move to player manager
-    private void AddPlayer(long peerId)
-    {
-        var p = GD.Load<PackedScene>(PlayerScene.ResourcePath);
-        var player = p.Instantiate();
-        player.Name = peerId.ToString();
-        AddChild(player);
-
     }
 
     public void OnJoinButtonPressed()

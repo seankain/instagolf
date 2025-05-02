@@ -18,6 +18,9 @@ public partial class Player : Node3D
     [Export]
     public float MouseSensitivity = 10f;
 
+    public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+
+
     public override void _Ready()
     {
         if (!IsMultiplayerAuthority()) { return; }
@@ -41,7 +44,9 @@ public partial class Player : Node3D
         {
             var mouseEvent = (InputEventMouseMotion)@event;
             CameraRig.RotateY(-Mathf.DegToRad(mouseEvent.Relative.X * this.MouseSensitivity));
-            CameraXPivot.RotateX(-Mathf.DegToRad(mouseEvent.Relative.Y * this.MouseSensitivity));
+            // I don't think I want the players to look up and down since old golf games just kept the camera straight
+            // and maybe allowed for a pivot to point in a new direction
+            //CameraXPivot.RotateX(-Mathf.DegToRad(mouseEvent.Relative.Y * this.MouseSensitivity));
 
 
             //CameraRig.RotateCameraRig.CameraRig.GlobalPosition.Slerp(GlobalPosition, 0.1f);
@@ -70,4 +75,16 @@ public partial class Player : Node3D
             }
         }
     }
+
+    // public override void _PhysicsProcess(double delta)
+    // {
+    //     Vector3 velocity = Velocity;
+
+    //     // Add the gravity.
+    //     if (!IsOnFloor())
+    //     {
+    //         velocity.Y -= gravity * (float)delta;
+    //     }
+
+    // }
 }
