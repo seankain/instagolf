@@ -20,16 +20,16 @@ public partial class Level : Node3D
         player.Name = peerId.ToString();
         AddChild(player);
         GD.Print("Adding player");
-        foreach (var spawnNode in GetTree().GetNodesInGroup("SpawnPositions"))
+        var levelChildren = GetChildren();
+        foreach (var c in levelChildren)
         {
-            GD.Print("Spawn node");
-            if (spawnNode.Name == $"spawn{player.Name}")
+            if (c is Spawn)
             {
-                GD.Print("Setting player position");
-                ((Node3D)player).GlobalPosition = ((Node3D)spawnNode).GlobalPosition;
+                if (((Spawn)c).IsOccupied)
+                    GD.Print("Setting player position");
+                ((Node3D)player).GlobalPosition = ((Node3D)c).GlobalPosition;
             }
         }
-
     }
 
 }

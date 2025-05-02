@@ -6,7 +6,7 @@ public partial class Spawn : Node3D
 {
     private Area3D triggerArea;
 
-    private List<Node3D> occupiers;
+    private List<Node3D> occupiers = new List<Node3D>();
 
     public override void _Ready()
     {
@@ -40,9 +40,6 @@ public partial class Spawn : Node3D
     }
 
 
-    public bool IsOccupied()
-    {
-        return this.occupiers.Count > 0;
-    }
+    public bool IsOccupied { get { return this.occupiers.Count > 0; } }
 
 }

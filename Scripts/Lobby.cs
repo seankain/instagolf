@@ -119,8 +119,10 @@ public partial class Lobby : Node
     [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
     private void PlayerLoaded()
     {
+        GD.Print("Player loaded");
         if (Multiplayer.IsServer())
         {
+            GD.Print("Player is server");
             _playersLoaded += 1;
             if (_playersLoaded == _players.Count)
             {

@@ -24,7 +24,7 @@ public partial class Player : Node3D
     public override void _Ready()
     {
         if (!IsMultiplayerAuthority()) { return; }
-        CameraRig.TopLevel = true;
+        //CameraRig.TopLevel = true;
         Input.MouseMode = Input.MouseModeEnum.Captured;
         //camera.Current = true;
         camera.Current = true;
