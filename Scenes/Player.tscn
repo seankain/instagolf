@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwmuot2vcojgs"]
+[gd_scene load_steps=6 format=3 uid="uid://dwmuot2vcojgs"]
 
 [ext_resource type="Script" uid="uid://g7dqnqmua4mr" path="res://Scripts/Player.cs" id="1_xyfoy"]
+[ext_resource type="PackedScene" uid="uid://y1f5osx6krmn" path="res://Scenes/Ball.tscn" id="2_gntrk"]
 [ext_resource type="PackedScene" uid="uid://brepk4tnjuvoj" path="res://Meshes/golfclub.glb" id="2_s5364"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_atwsh"]
@@ -18,6 +19,7 @@ script = ExtResource("1_xyfoy")
 CameraRig = NodePath("CameraRig")
 CameraXPivot = NodePath("CameraRig/Marker3D")
 camera = NodePath("CameraRig/Marker3D/Camera3D")
+BallScene = ExtResource("2_gntrk")
 MouseSensitivity = 1.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

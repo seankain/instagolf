@@ -32,6 +32,7 @@ public partial class MainMenu : Control
     public void OnHostButtonPressed()
     {
         Lobby.Instance.OnHostButtonPressed();
+        this.Hide();
         // OptionsMenu.Visible = false;
         // JoinMenu.Visible = false;
         // foreach (var c in JoinMenu.GetChildren())
