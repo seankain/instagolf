@@ -16,6 +16,9 @@ public partial class Player : Node3D
     public PackedScene BallScene;
 
     [Export]
+    public Marker3D BallSpawnPosition;
+
+    [Export]
     public float StrikeVelocity;
 
     [Export]
@@ -62,7 +65,7 @@ public partial class Player : Node3D
         if (@event is InputEventMouseButton)
         {
             var clickEvent = (InputEventMouseButton)@event;
-            if (clickEvent.ButtonIndex == MouseButton.Left)
+            if (clickEvent.ButtonIndex == MouseButton.Left && clickEvent.IsActionPressed())
             {
                 SpawnBall();
             }
@@ -75,6 +78,7 @@ public partial class Player : Node3D
         var ball = b.Instantiate();
 
         AddChild(ball);
+        (ball as Ball).Position = BallSpawnPosition.Position;
         (ball as Ball).ChangeVelocity(StrikeVelocity * (Vector3.Forward + Vector3.Up).Normalized());
     }
 
