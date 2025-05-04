@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwmuot2vcojgs"]
+[gd_scene load_steps=7 format=3 uid="uid://dwmuot2vcojgs"]
 
 [ext_resource type="Script" uid="uid://g7dqnqmua4mr" path="res://Scripts/Player.cs" id="1_xyfoy"]
 [ext_resource type="PackedScene" uid="uid://y1f5osx6krmn" path="res://Scenes/Ball.tscn" id="2_gntrk"]
 [ext_resource type="PackedScene" uid="uid://brepk4tnjuvoj" path="res://Meshes/golfclub.glb" id="2_s5364"]
+[ext_resource type="Texture2D" uid="uid://cagyna6xnpi68" path="res://Icons/PowerMeterAtlas.tres" id="4_dewec"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_atwsh"]
 
@@ -43,3 +44,27 @@ replication_config = SubResource("SceneReplicationConfig_kyqiw")
 
 [node name="BallSpawnPos" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32574, 0.35837, -0.773366)
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Hud"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hud/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -40.0
+offset_right = 62.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_dewec")
