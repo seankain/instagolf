@@ -65,7 +65,7 @@ public partial class Player : Node3D
         if (@event is InputEventMouseButton)
         {
             var clickEvent = (InputEventMouseButton)@event;
-            if (clickEvent.ButtonIndex == MouseButton.Left && clickEvent.IsActionPressed())
+            if (clickEvent.ButtonIndex == MouseButton.Left && clickEvent.Pressed)
             {
                 SpawnBall();
             }
