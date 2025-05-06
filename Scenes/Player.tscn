@@ -24,7 +24,7 @@ CameraXPivot = NodePath("CameraRig/Marker3D")
 camera = NodePath("CameraRig/Marker3D/Camera3D")
 BallScene = ExtResource("2_gntrk")
 BallSpawnPosition = NodePath("BallSpawnPos")
-StrikeVelocity = 10.0
+StrikeVelocity = 1.0
 MouseSensitivity = 1.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -59,20 +59,19 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Hud/Control"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_right = 200.0
-offset_bottom = 200.0
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_top = -115.0
+offset_right = 151.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 script = ExtResource("4_5ixxa")
 Sprites = ExtResource("5_nn08x")
 CurrentAnimation = "Charge"
-AutoPlay = true
-Playing = true
 
 [node name="HitLocationBall" type="TextureRect" parent="Hud/Control"]
 layout_mode = 1
@@ -89,10 +88,3 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_nn08x")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Hud/Control"]
-position = Vector2(614, 575)
-scale = Vector2(7.64583, 3.9375)
-sprite_frames = ExtResource("5_nn08x")
-animation = &"Charge"
-frame_progress = 0.922121

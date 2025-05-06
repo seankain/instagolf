@@ -54,6 +54,7 @@ public partial class AnimatedTextureRect : TextureRect
         if (FrameDelta >= RefreshRate / FPS)
         {
             var texture = GetNextFrame();
+            this.Texture = (Texture2D)texture;
         }
         FrameDelta = 0;
     }

@@ -79,7 +79,7 @@ public partial class Player : Node3D
 
         AddChild(ball);
         (ball as Ball).Position = BallSpawnPosition.Position;
-        (ball as Ball).ChangeVelocity(StrikeVelocity * (Vector3.Forward + Vector3.Up).Normalized());
+        (ball as Ball).ChangeVelocity(StrikeVelocity * (-Transform.Basis.Z + Vector3.Up).Normalized());
     }
 
     public override void _UnhandledInput(InputEvent @event)
