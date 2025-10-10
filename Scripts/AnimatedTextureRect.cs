@@ -59,6 +59,8 @@ public partial class AnimatedTextureRect : TextureRect
         FrameDelta = 0;
     }
 
+    public void SetFrame() { }
+
     private Texture GetNextFrame()
     {
         FrameIndex += AnimationDirection;

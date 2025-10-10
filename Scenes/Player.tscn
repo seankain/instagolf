@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwmuot2vcojgs"]
+[gd_scene load_steps=10 format=3 uid="uid://dwmuot2vcojgs"]
 
 [ext_resource type="Script" uid="uid://g7dqnqmua4mr" path="res://Scripts/Player.cs" id="1_xyfoy"]
 [ext_resource type="PackedScene" uid="uid://y1f5osx6krmn" path="res://Scenes/Ball.tscn" id="2_gntrk"]
 [ext_resource type="PackedScene" uid="uid://brepk4tnjuvoj" path="res://Meshes/golfclub.glb" id="2_s5364"]
 [ext_resource type="Script" uid="uid://0yv7pu1mqn4r" path="res://Scripts/AnimatedTextureRect.cs" id="4_5ixxa"]
+[ext_resource type="Script" uid="uid://dhuwh4csqantx" path="res://Scenes/PlayerHud.cs" id="4_52ee3"]
 [ext_resource type="SpriteFrames" uid="uid://co1ipxlwsosj5" path="res://Icons/PowerMeter.tres" id="5_nn08x"]
 [ext_resource type="Texture2D" uid="uid://dbenjseukjwt1" path="res://Icons/GolfBallTeed.png" id="6_nn08x"]
 
@@ -49,15 +50,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32574, 0.35837, -0.773366)
 
 [node name="Hud" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="Hud"]
+[node name="PlayerHudControl" type="Control" parent="Hud"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_52ee3")
 
-[node name="TextureRect" type="TextureRect" parent="Hud/Control"]
+[node name="PowerMeterTextureRect" type="TextureRect" parent="Hud/PlayerHudControl"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -72,8 +74,9 @@ grow_vertical = 0
 script = ExtResource("4_5ixxa")
 Sprites = ExtResource("5_nn08x")
 CurrentAnimation = "Charge"
+SpeedScale = 0.1
 
-[node name="HitLocationBall" type="TextureRect" parent="Hud/Control"]
+[node name="HitLocationBall" type="TextureRect" parent="Hud/PlayerHudControl"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
